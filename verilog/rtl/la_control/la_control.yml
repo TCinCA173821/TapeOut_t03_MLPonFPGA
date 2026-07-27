@@ -1,0 +1,62 @@
+---
+info:
+  name: la_control
+  description: LA Control to select which design has control
+  repo: STARS-Design-Track-2024/Project_Template.git
+  owner: Purdue University
+  license: APACHE 2.0
+  author: Aidan Jacobsen
+  email: jacobse7@purdue.edu
+  version: v1.0.0
+  date: 28-05-2024
+  category: digital
+  tags:
+    - counter
+    - sample project
+  bus:
+    - wb
+  type: soft
+  status: verified
+  qualification: N/A
+  cell_count: N/A
+  width: 0.0
+  height: 0.0
+  technology: N/A
+  clock_freq_mhz: 10
+  digital_supply_voltage: n/a
+  analog_supply_voltage: n/a
+
+ports:
+  - name: la_sel
+    width: 4
+    direction: input
+    description: la_sel
+
+external_interface:
+  - name: la_dat
+    port: la_dat
+    width: 416
+    direction: input
+    description: Inputs to write to la_i from designs
+  - name: muxxed_la_dat
+    port: muxxed_la_dat
+    width: 32
+    direction: output
+    description: Output to Management SoCs LA
+
+clock:
+  name: clk
+
+reset:
+  name: nrst
+  level: 0
+
+registers:
+  - name: LA_SEL_VAL
+    size: 4
+    mode: w
+    fifo: false
+    offset: 0
+    bit_access: false
+    write_port: la_sel
+    description: Register for la_sel

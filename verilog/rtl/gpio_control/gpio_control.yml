@@ -1,0 +1,120 @@
+---
+info:
+  name: gpio_control
+  description: GPIO Control to select which design has control
+  repo: STARS-Design-Track-2024/Project_Template.git
+  owner: Purdue University
+  license: APACHE 2.0
+  author: Aidan Jacobsen
+  email: jacobse7@purdue.edu
+  version: v1.0.0
+  date: 28-05-2024
+  category: digital
+  tags:
+    - counter
+    - sample project
+  bus:
+    - wb
+  type: soft
+  status: verified
+  qualification: N/A
+  cell_count: N/A
+  width: 0.0
+  height: 0.0
+  technology: N/A
+  clock_freq_mhz: 10
+  digital_supply_voltage: n/a
+  analog_supply_voltage: n/a
+
+ports:
+  - name: pin_0to7_sel
+    width: 28
+    direction: input
+    description: pin_0to7_sel
+  - name: pin_8to15_sel
+    width: 28
+    direction: input
+    description: pin_8to15_sel
+  - name: pin_16to23_sel
+    width: 28
+    direction: input
+    description: pin_16to23_sel
+  - name: pin_24to31_sel
+    width: 28
+    direction: input
+    description: pin_24to31_sel
+  - name: pin_32to37_sel
+    width: 24
+    direction: input
+    description: pin_32to37_sel
+
+external_interface:
+  - name: io_oeb
+    port: io_oeb
+    width: 494
+    direction: input
+    description: OEB signals from team designs
+  - name: io_out
+    port: io_out
+    width: 494
+    direction: input
+    description: Output signals from team designs
+  - name: muxxed_io_oeb
+    port: muxxed_io_oeb
+    width: 38
+    direction: output
+    description: Output OEB to GPIO
+  - name: muxxed_io_out
+    port: muxxed_io_out
+    width: 38
+    direction: output
+    description: Output to GPIO
+
+clock:
+  name: clk
+
+reset:
+  name: nrst
+  level: 0
+
+registers:
+  - name: PIN_0TO7_SEL_VAL
+    size: 28
+    mode: w
+    fifo: false
+    offset: 0
+    bit_access: false
+    write_port: pin_0to7_sel
+    description: Register for pin_0to7_sel
+  - name: PIN_8TO15_SEL_VAL
+    size: 28
+    mode: w
+    fifo: false
+    offset: 4
+    bit_access: false
+    write_port: pin_8to15_sel
+    description: Register for pin_8to15_sel
+  - name: PIN_16TO23_SEL_VAL
+    size: 28
+    mode: w
+    fifo: false
+    offset: 8
+    bit_access: false
+    write_port: pin_16to23_sel
+    description: Register for pin_16to23_sel
+  - name: PIN_24TO731_SEL_VAL
+    size: 28
+    mode: w
+    fifo: false
+    offset: 12
+    bit_access: false
+    write_port: pin_24to31_sel
+    description: Register for pin_24to31_sel
+  - name: PIN_32TO37_SEL_VAL
+    size: 24
+    mode: w
+    fifo: false
+    offset: 16
+    bit_access: false
+    write_port: pin_32to37_sel
+    description: Register for pin_32to37_sel
