@@ -1,4 +1,4 @@
-# CI2605_NEBULA (ARCHIVED)
+# Purdue_NEBULA
 ## Caravel User Project
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Run STARS Submission Checks](https://github.com/STARS-Design-Track-2025/nebula-iii/actions/workflows/stars_submission_checks.yml/badge.svg)](https://github.com/STARS-Design-Track-2025/nebula-iii/actions/workflows/stars_submission_checks.yml) [![UPRJ_CI](https://github.com/efabless/caravel_project_example/actions/workflows/user_project_ci.yml/badge.svg)](https://github.com/efabless/caravel_project_example/actions/workflows/user_project_ci.yml) [![Caravel Build](https://github.com/efabless/caravel_project_example/actions/workflows/caravel_build.yml/badge.svg)](https://github.com/efabless/caravel_project_example/actions/workflows/caravel_build.yml)
@@ -16,7 +16,7 @@ Refer to the following [readthedocs](https://caravel-sim-infrastructure.readthed
 
 ## Getting Started (For Mentors)
 
-This repository should contain all of the instructions, base files, and scripts for an `openlane2` Caravel project.  
+This repository should contain all of the instructions, base files, and scripts for an `librelane` Caravel project.  
 Have the students follow the [Getting Started (For Students)](https://github.com/STARS-Design-Track-2025/nebula-iii?tab=readme-ov-file#getting-started-for-students) section below and approve pull requests ONLY when the 
 team is completely done AND has passed all of the GitHub actions checks. The major requirements are that teams have a successful 
 testbench that PROGRAMMATICALLY tests their designs and that they pass some of the formatting checks. If you (PMs) 
@@ -74,3 +74,4 @@ project_info:
 * `make gdsview_team_##_klayout` - This will open a visualizer of your design's GDS layout using KLayout.
 * `make sv2v_team_##` - Our open-source tools don't fully support SystemVerilog syntax and structures. `sv2v` is a great tool that allows you to convert your SystemVerilog code to Verilog code and make it compatible with all tools. If you run into a compilation error due to SystemVerilog syntax, feel free to use `sv2v`, but ask your PM if you have questions.
 * `make assemble_team_##` - Converts RISC-V assembly into a HEX memory file and creates a C header file. These can be used for RTL simulations or other sub-module tesbenches. You must create an assembly file called `team_##_cpu.asm` under `verilog/dv/team_##` before using the target.
+* `make venv` - Creates a venv environment config directory to avoid "externally managed environment" issues. Activate with `source venv/bin/activate` in the project root directory
