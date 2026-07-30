@@ -41,6 +41,19 @@ export PDKPATH?=$(PDK_ROOT)/$(PDK)
 
 PYTHON_BIN ?= python3
 
+# Locate RISC-V toolchain automatically across common paths
+RISCV_GCC_BIN := $(shell which riscv64-unknown-elf-gcc 2>/dev/null || \
+                        find /usr/bin /bin /package/riscv-gnu-toolchain/bin /opt/riscv32/bin \
+                        -maxdepth 1 -name "riscv64-unknown-elf-gcc" 2>/dev/null | head -n 1)
+
+ifneq ($(RISCV_GCC_BIN),)
+    DETECTED_GCC_PATH := $(dir $(RISCV_GCC_BIN))
+    # Strip trailing slash for consistency
+    DETECTED_GCC_PATH := $(DETECTED_GCC_PATH:/=)
+else
+    DETECTED_GCC_PATH :=
+endif
+
 ROOTLESS ?= 0
 USER_ARGS = -u $$(id -u $$USER):$$(id -g $$USER)
 ifeq ($(ROOTLESS), 1)
@@ -168,6 +181,14 @@ docker_run_verify=\
 		sh -c $(verify_command)
 
 custom_run_verify =\
+	@if [ -z "$(DETECTED_GCC_PATH)" ]; then \
+        echo "\033[0;31m========================================================================\033[0m"; \
+        echo "\033[0;31mERROR: RISC-V toolchain (riscv64-unknown-elf-gcc) not found!\033[0m"; \
+        echo "Checked: /bin, /usr/bin, /package/riscv-gnu-toolchain/bin, and system PATH."; \
+        echo "If running locally, please install it using: 'sudo apt install gcc-riscv64-unknown-elf'"; \
+        echo "\033[0;31m========================================================================\033[0m"; \
+        exit 1; \
+    fi; \
     export TARGET_PATH=${TARGET_PATH} &&\
     export PDK_ROOT=${PDK_ROOT} &&\
     export CARAVEL_ROOT=${CARAVEL_ROOT} &&\
@@ -178,7 +199,7 @@ custom_run_verify =\
     export CARAVEL_VERILOG_PATH=$(TARGET_PATH)/caravel/verilog &&\
     export MCW_ROOT=$(MCW_ROOT) &&\
 	export GCC_PREFIX=riscv64-unknown-elf &&\
-	export GCC_PATH=/bin &&\
+	export GCC_PATH=$(DETECTED_GCC_PATH) &&\
 	export USER_PROJECT_VERILOG=$(PWD)/verilog &&\
     cd verilog/dv/$* && export SIM=${SIM} && make
 # If you're Aidan, use this:
@@ -660,8 +681,16 @@ vlint-%:
 # Assemble RISC-V assembly (.asm) file into a list of instructions in a C header file
 # Useful for CPU teams so they can load RISC-V instructions into RAM
 assemble_%:
+	@if [ -z "$(DETECTED_GCC_PATH)" ]; then \
+        echo "\033[0;31m========================================================================\033[0m"; \
+        echo "\033[0;31mERROR: RISC-V toolchain (riscv64-unknown-elf-gcc) not found!\033[0m"; \
+        echo "Checked: /bin, /usr/bin, /package/riscv-gnu-toolchain/bin, and system PATH."; \
+        echo "If running locally, please install it using: 'sudo apt install gcc-riscv64-unknown-elf'"; \
+        echo "\033[0;31m========================================================================\033[0m"; \
+        exit 1; \
+    fi; \
 	@export GCC_PREFIX=riscv64-unknown-elf &&\
-	export GCC_PATH=/bin &&\
+	export GCC_PATH=$(DETECTED_GCC_PATH) &&\
 	cd verilog/dv && make assy2hex_$*
 
 

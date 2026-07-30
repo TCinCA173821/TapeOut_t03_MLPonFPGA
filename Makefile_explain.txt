@@ -1,0 +1,66 @@
+Author: Alex Weyer 7/29/2026
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| Target                            | Description                                        | Example Usage                            |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| purdue-setup                      | Installs dependencies, Caravel, MCW, PDK, and      | make purdue-setup                        |
+|                                   | configures BusWrap for the Purdue environment.     |                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| init_team_##                      | Initializes folder structure and template files    | make init_team_04                        |
+|                                   | for a given team number (00–99).                   | make init_team_04 pristine=1             |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| nebula                            | Generates BusWrap RTL, top-level NEBULA wrapper,   | make nebula                              |
+|                                   | and update include file lists via Python scripts.  |                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| bus-wrap-setup                    | Installs svmodule and clones the BusWrap repo.     | make bus-wrap-setup                      |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| bus-wrap-generate                 | Runs the Makefile inside verilog/rtl to generate   | make bus-wrap-generate                   |
+|                                   | BusWrap Verilog structures for all active teams.   |                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| harden_<block> / harden           | Runs LibreLane implementation flow on a specific   | make harden_team_00                      |
+|                                   | block or across all team directories in openlane/. | make harden                              |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| tb-module-<team>-<module>         | Compiles and runs an iVerilog simulation for a     | make tb-module-team_00-t00_flex_counter  |
+|                                   | module testbench located in the dv folder.         |                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| tbsim-source-<team>-<module>      | Compiles and launches a VCS waveform simulation    | make tbsim-source-team_00-t00_flex_ctr   |
+|                                   | environment for a specific module testbench.       |                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| purdue-verify-<pattern>-rtl       | Runs full system RTL simulation via native GCC     | make purdue-verify-team_00-rtl           |
+|                                   | toolchain instead of using Docker containers.      |                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| purdue-verify-<pattern>-gl[-sdf]  | Executes gate-level (GL) or SDF timing simulations | make purdue-verify-team_00-gl            |
+|                                   | locally without running Docker.                    | make purdue-verify-team_00-gl-sdf        |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| cram_<team>                       | Synthesizes, places, routes, and flashes a team's  | make cram_team_00                        |
+|                                   | design directly onto an iCE40 HX8K FPGA board.     |                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| gdsview_<block>_klayout           | Opens the block's GDSII layout file inside         | make gdsview_team_00_klayout             |
+|                                   | KLayout within an OpenLane 2 Nix-shell environment.|                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| vlint-<team>[-<module>]           | Runs Verilator linting checks against top-level    | make vlint-team_00                       |
+|                                   | team structures or individual HDL submodules.      | make vlint-team_00-t00_flex_counter      |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| sv2v_<team>                       | Converts SystemVerilog HDL files into standard     | make sv2v_team_00                        |
+|                                   | Verilog files under the converted_modules path.    |                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| assemble_<name>                   | Assembles RISC-V assembly (.asm) files into C      | make assemble_my_program                 |
+|                                   | memory header arrays for initial loading into RAM. |                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| congestion_gui                    | Launches OpenROAD GUI inside Nix shell to visualize| make congestion_gui                      |
+|                                   | placement and routing layout congestion metrics.   |                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| zicsr-fix                         | Patches architecture flags in MCW variable files   | make zicsr-fix                           |
+|                                   | to match 'rv32i_zicsr' ISA string requirements.    |                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| venv                              | Prepares a local Python virtual environment and    | make venv                                |
+|                                   | installs dependencies like PyYAML.                 |                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| clean-<block>                     | Deletes generated gate-level outputs (GDS, LEF,    | make clean-team_00                       |
+|                                   | MAG, SDF, SPEF) for a specific team directory.     |                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| uncompress                        | Uncompresses all files in the repo. Make sure to   | make uncompress                          |
+|                                   | always run this after cloning or pulling from repo.|                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
+| compress                          | Compresses all files over 100MB in this repo.      | make compress                            |
+|                                   | you MUST run this before pushing any large files.  |                                          |
++-----------------------------------+----------------------------------------------------+------------------------------------------+
