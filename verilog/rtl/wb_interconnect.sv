@@ -10,7 +10,7 @@
 */
 
 module wb_interconnect #(
-    parameter NUM_TEAMS = 12
+    parameter NUM_TEAMS = 0 //TODO
 )
 (
 `ifdef USE_POWER_PINS

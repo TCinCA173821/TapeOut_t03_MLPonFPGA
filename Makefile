@@ -606,6 +606,7 @@ klayout_cmd = \
 
 # Open GDSII of design in KLayout
 # Example target: make gdsview_team_00_klayout
+# May need to add X11 forwarding permissions with "xhost +si:localuser:$USER"
 .PHONY: gdsview_%_klayout
 gdsview_%_klayout:
 	@if echo "$(blocks)" | grep -qw "$*"; then \

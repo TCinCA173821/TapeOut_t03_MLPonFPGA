@@ -80,14 +80,14 @@ f"""
         for team in teams:
             f.write(\
 f"""      
-        "mprj.{team}_Wrapper.{team}_WB.instance_to_wrap vccd1 vssd1 vccd1 vssd1",
+        "mprj.{team}_Wrapper.{team}_WB.instance_to_wrap vccd1 vssd1 vccd1 vssd1"
 """\
 )
                 
     
         f.write(\
 """                
-        "mprj.sram.sram_inst vccd1 vssd1 vccd1 vssd1"
+
     ],
     "MACRO_PLACEMENT_CFG": "dir::macro.cfg",
     "MAGIC_DEF_LABELS": 0,
@@ -98,14 +98,14 @@ f"""
         for team in teams:
             f.write(\
 f"""      
-        "dir::../../verilog/gl/{team}.v",
+        "dir::../../verilog/gl/{team}.v"
 """\
 )
                 
 
         f.write(\
 """                
-        "dir::../../verilog/rtl/sram/sky130_sram_8kbyte_1r1w_32x2048_8.v"
+
     ],
     "EXTRA_LEFS": [
 """\
@@ -114,14 +114,14 @@ f"""
         for team in teams:
             f.write(\
 f"""      
-        "dir::../../lef/{team}.lef",
+        "dir::../../lef/{team}.lef"
 """\
 )
                 
 
         f.write(\
 """                
-        "dir::../../lef/sky130_sram_8kbyte_1r1w_32x2048_8.lef"
+
     ],
     "EXTRA_GDS_FILES": [
 """\
@@ -130,14 +130,14 @@ f"""
         for team in teams:
             f.write(\
 f"""      
-        "dir::../../gds/{team}.gds",
+        "dir::../../gds/{team}.gds"
 """\
 )
                 
 
         f.write(\
 """                
-        "dir::../../gds/sky130_sram_8kbyte_1r1w_32x2048_8.gds"
+
     ],
     "EXTRA_LIBS": [
 """\
@@ -146,13 +146,13 @@ f"""
         for team in teams:
             f.write(\
 f"""      
-        "dir::../../lib/{team}.lib",
+        "dir::../../lib/{team}.lib"
 """\
 )
                 
         f.write(\
 """     
-        "dir::../../lib/sky130_sram_8kbyte_1r1w_32x2048_8_TT_1p8V_25C.lib"
+
     ],
     "EXTRA_SPEFS": [
 """\
@@ -178,10 +178,10 @@ f"""
     "QUIT_ON_SYNTH_CHECKS": 0,
     "FP_PDN_CHECK_NODES": 1,
 
-    "//": "Added to skip Magic DRC, because of SRAM (will remove later)",
-    "RUN_MAGIC_DRC": 0,
-    "MAGIC_DRC_USE_GDS": 0,
-    "QUIT_ON_MAGIC_DRC": 0,
+    "//": "Added back magic DRC (no SRAM)",
+    "RUN_MAGIC_DRC": 1,
+    "MAGIC_DRC_USE_GDS": 1,
+    "QUIT_ON_MAGIC_DRC": 1,
 
     "SYNTH_ELABORATE_ONLY": 0,
     "SYNTH_CLOCK_UNCERTAINTY": 0.2,

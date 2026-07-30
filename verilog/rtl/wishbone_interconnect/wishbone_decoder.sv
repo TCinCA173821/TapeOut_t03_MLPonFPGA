@@ -147,7 +147,7 @@ always @(*) begin
                         next_dat_reg        = wbs_dat_i_periph_2D[1];
                         next_ack_reg        = 1'b1;
                     end
-                    32'h3300????: begin //SRAM address space
+                    32'h3300????: begin //SRAM address space TODO: may move to FF ram
                         next_state = 1 << 1;
                         
                         wbs_cyc_o_periph[0] = wbs_cyc_i_m;
