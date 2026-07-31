@@ -1,4 +1,4 @@
-
+`include "tb_macros.vh"
 module SPI_shiftreg_tb;
 
     // TB Signals (connect to DUT)
@@ -74,8 +74,7 @@ module SPI_shiftreg_tb;
 
     initial begin
         
-        $dumpfile("waveform.fst");
-        $dumpvars(0, tb_copier_controller);
+        `TB_DUMP("t03_SPI_shiftreg.vcd", tb_t03_SPI_shiftreg_tb, 0)
 
         n_rst = 1'b1;
 
