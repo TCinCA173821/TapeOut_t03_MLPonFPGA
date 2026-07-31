@@ -1,3 +1,4 @@
+
 module controllertop_tb;
     logic clk = 0;
     logic n_rst;
@@ -84,8 +85,7 @@ module controllertop_tb;
     endtask
     
     initial begin
-        $dumpfile("waveform.fst");
-        $dumpvars(0, controllertop_tb.sv);
+		`TB_DUMP("t03_controllertop.vcd", tb_t03_controllertop, 0)
       	n_rst = 1'b1;
       	$timeformat(-9, 2, " ns", 20);
       	reset();
