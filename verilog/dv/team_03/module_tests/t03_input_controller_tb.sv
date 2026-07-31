@@ -1,3 +1,4 @@
+`include "tb_macros.vh"
 module input_controller_tb;
     
 	logic clk;
@@ -88,8 +89,7 @@ module input_controller_tb;
     endtask
     
     initial begin
-        $dumpfile("waveform.fst");
-        $dumpvars(0, input_controller_tb.sv);
+		`TB_DUMP("t03_input_controller.vcd", tb_t03_input_controller, 0)
   	    n_rst = 1'b1;
   	    $timeformat(-9, 2, " ns", 20);
   	    reset();
