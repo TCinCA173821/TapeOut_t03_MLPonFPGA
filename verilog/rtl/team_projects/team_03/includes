@@ -1,4 +1,4 @@
-# Team 00
+# Team 03
 -v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_MAC.sv
 -v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_MAC_controller.sv
 -v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_SPI_FSM.sv
