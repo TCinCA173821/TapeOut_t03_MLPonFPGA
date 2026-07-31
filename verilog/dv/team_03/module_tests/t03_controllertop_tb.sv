@@ -1,4 +1,4 @@
-
+`include "tb_macros.vh"
 module controllertop_tb;
     logic clk = 0;
     logic n_rst;
