@@ -61,8 +61,7 @@ module SPI_fsm_tb;
 
     initial begin
         
-        $dumpfile("waveform.fst");
-        $dumpvars(0, tb_copier_controller);
+        `TB_DUMP("t03_SPI_fsm.vcd", tb_t03_SPI_fsm, 0)
 
         n_rst = 1'b1;
 
