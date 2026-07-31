@@ -1,3 +1,4 @@
+`include "tb_macros.vh"
 module addersigned16bit_tb;
   logic signed [15:0] in1;
   logic signed [15:0] in2;
@@ -27,8 +28,7 @@ module addersigned16bit_tb;
   endtask
   
   initial begin
-    $dumpfile("waveform.fst");
-    $dumpvars(0, addersigned16bit_tb);
+    `TB_DUMP("t03_addersigned16bit_tb.vcd", tb_t03_addersigned16bit, 0) 
 
     //tests
     test(16'sd0, 16'sd0);
