@@ -1,5 +1,5 @@
 
-module SPI_mod_tb;
+module SPI_module_tb;
 
     // TB Signals (connect to DUT)
     logic clk = 0, n_rst, sclk = 0;
