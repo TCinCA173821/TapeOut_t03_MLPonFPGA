@@ -12,8 +12,7 @@ module mixedsign4bitmult_tb;
   );
 
   initial begin
-  	$dumpfile("waveform.fst");
-    $dumpvars(0, mixedsign4bitmult_tb);
+    `TB_DUMP("t03_mixedsign4bitmult.vcd", tb_t03_mixedsign4bitmult, 0)
     
     for (int i = -8; i < 8; i++) begin
       for (int j = 0; j < 16; j++) begin
