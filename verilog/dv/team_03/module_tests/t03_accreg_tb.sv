@@ -1,3 +1,4 @@
+`include "tb_macros.vh"
 module accreg_tb;
   logic clk = 0, n_rst;
   logic wen, len;
@@ -56,8 +57,7 @@ module accreg_tb;
   endtask
   
   initial begin
-    $dumpfile("waveform.fst");
-    $dumpvars(0, accreg_tb);
+	  `TB_DUMP("t03_accreg.vcd", tb_t03_accreg, 0)
 
   	n_rst = 1'b1;
 	
