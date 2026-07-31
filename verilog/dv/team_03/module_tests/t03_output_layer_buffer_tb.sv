@@ -1,3 +1,4 @@
+`include "tb_macros.vh"
 module output_layer_buffer_tb;
 
 //tb signals
@@ -77,8 +78,7 @@ task test(
 endtask
 
 initial begin
-	$dumpfile("waveform.fst");
-	$dumpvars(0, output_layer_buffer_tb);
+	`TB_DUMP("t03_output_layer_buffer.vcd", tb_t03_output_layer_buffer, 0)
 
 	nrst = 1'b1;
 	
