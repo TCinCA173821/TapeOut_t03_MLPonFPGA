@@ -1,0 +1,21 @@
+# Team 00
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_MAC.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_MAC_controller.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_SPI_FSM.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_SPI_mod.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_SPI_shiftreg.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_arrreg.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_addersigned16bit.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_argmax.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_argmax_controller.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_controllertop.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_dualffsync.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_hidden_layer_buffer.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_input_controller.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_layer_controller.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_main_ctrlfsm.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_mixedsign4bitmult.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_output_layer_buffer.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/t03_relu.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/team_03.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_03/team_03_fpga_top.sv
