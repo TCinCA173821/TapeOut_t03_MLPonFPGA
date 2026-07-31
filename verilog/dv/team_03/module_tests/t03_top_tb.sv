@@ -1,3 +1,4 @@
+`include "tb_macros.vh"
 module top_tb;
   logic hz100, reset;
   logic [20:0] pb;
@@ -79,8 +80,7 @@ module top_tb;
   endtask
   
   initial begin
-    $dumpfile("waveform.fst");
-    $dumpvars(0, top_tb.sv);
+	  `TB_DUMP("t03_top.vcd", tb_t03_top, 0)
     reset = 1'b0;
     $timeformat(-9, 2, " ns", 20);
     rst();
