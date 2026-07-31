@@ -1,3 +1,4 @@
+`include "tb_macros.vh"
 module hidden_layer_buffer_tb;
 
 //tb signals
@@ -79,8 +80,7 @@ task test(
 endtask
 
 initial begin
-	$dumpfile("waveform.fst");
-  $dumpvars(0, hidden_layer_buffer_tb.sv);
+	`TB_DUMP("t03_hidden_layer_buffer.vcd", tb_t03_hidden_layer_buffer, 0)
 	nrst = 1'b1;
 	$timeformat(-9, 2, " ns", 20);
 	
