@@ -1,3 +1,4 @@
+`include "tb_macros.vh"
 module argmax_controller_tb;
   logic clk = 0, n_rst;
   logic Aen;
@@ -50,8 +51,7 @@ module argmax_controller_tb;
   endtask
   
   initial begin
-    $dumpfile("waveform.fst");
-    $dumpvars(0, argmax_controller_tb.sv);
+	  `TB_DUMP("t03_argmax_controller.vcd", tb_t03_argmax_controller, 0) 
   	n_rst = 1'b1;
   	$timeformat(-9, 2, " ns", 20);
   	reset();
