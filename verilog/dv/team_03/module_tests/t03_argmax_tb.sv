@@ -1,3 +1,4 @@
+`include "tb_macros.vh"
 module argmax_tb;
 
 //tb signals
@@ -51,8 +52,7 @@ task check(
 endtask
 
 initial begin
-	$dumpfile("waveform.fst");
-	$dumpvars(0, argmax_tb);
+	`TB_DUMP("t03_argmax.vcd", tb_t03_argmax, 0)
 
 	nrst = 1'b1;
 	
