@@ -1,4 +1,4 @@
-
+`include "tb_macros.vh"
 module SPI_fsm_tb;
 
     // TB Signals (connect to DUT)
