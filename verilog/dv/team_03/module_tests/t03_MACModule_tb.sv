@@ -1,3 +1,5 @@
+`include "tb_macros.vh"
+
 module MACModule_tb;
   logic clk = 0, n_rst;
   logic [7:0] MAC_in;
@@ -58,8 +60,7 @@ module MACModule_tb;
   endtask
 
   initial begin
-    $dumpfile("waveform.fst");
-    $dumpvars(0, MACModule_tb.sv);
+    `TB_DUMP("t03_MACModule.vcd", tb_t03_MACModule, 0)
   	n_rst = 1'b1;
   	$timeformat(-9, 2, " ns", 20);
   	
