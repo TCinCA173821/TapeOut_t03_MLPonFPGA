@@ -1,3 +1,4 @@
+`include "tb_macros.vh"
 module mainctrlfsm_tb;
     logic clk = 0, n_rst;
     logic start;
@@ -65,8 +66,7 @@ module mainctrlfsm_tb;
     endtask
 
     initial begin
-        $dumpfile("waveform.fst");
-        $dumpvars(0, mainctrlfsm_tb.sv);
+        `TB_DUMP("t03_mainctrlfsm.vcd", tb_t03_mainctrlfsm, 0)
   	    n_rst = 1'b1;
   	    $timeformat(-9, 2, " ns", 20);
   	    reset();
