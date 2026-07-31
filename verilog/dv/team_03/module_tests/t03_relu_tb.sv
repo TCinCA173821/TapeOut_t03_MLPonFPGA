@@ -1,3 +1,4 @@
+`include "tb_macros.vh"
 module relu_tb;
   logic signed [15:0] in;
   logic [3:0] out;
@@ -23,8 +24,7 @@ module relu_tb;
   endtask
 
   initial begin
-    $dumpfile("waveform.fst");
-    $dumpvars(0, addersigned16bit_tb);
+    `TB_DUMP("t03_relu.vcd", tb_t03_relu, 0)
 
     //tests
     test(16'sd0, 4'b0);
